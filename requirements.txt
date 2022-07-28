@@ -1,2 +1,2 @@
-aoe-opening-data>=1.0.10
+aoe-opening-data>=1.0.11
 git+https://github.com/happyleavesaoc/aoc-mgz
