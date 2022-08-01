@@ -19,7 +19,7 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     count = 1
-    if !args.multiple_file_output:
+    if not args.multiple_file_output:
       single_file = open(os.path.join(args.input, "output.csv"), "w")
     for filename in args.input.iterdir():
       if filename.is_file() and filename.suffix == ".aoe2record":
