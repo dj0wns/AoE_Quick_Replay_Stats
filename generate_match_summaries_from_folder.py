@@ -15,11 +15,11 @@ if __name__ == "__main__":
     parser.add_argument("-B", "--only-unique-buildings", action="store_true")
     parser.add_argument("-t", "--include-techs", action="store_true")
     parser.add_argument("-o", "--include-player-openings", action="store_true")
-    parser.add_argument("-s", "--single-file-output", action="store_true")
+    parser.add_argument("-m", "--multiple-file-output", action="store_true")
     args = parser.parse_args()
 
     count = 1
-    if args.single_file_output:
+    if !args.multiple_file_output:
       single_file = open(os.path.join(args.input, "output.csv"), "w")
     for filename in args.input.iterdir():
       if filename.is_file() and filename.suffix == ".aoe2record":
@@ -42,8 +42,8 @@ if __name__ == "__main__":
             args.only_unique_buildings,
             args.include_techs,
             args.include_player_openings)
-        if args.single_file_output:
-          single_file.write(csv)
-        else:
+        if args.multiple_file_output:
           with open(filename.with_suffix(".csv"), "w") as f:
             f.write(csv)
+        else:
+          single_file.write(csv)
