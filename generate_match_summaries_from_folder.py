@@ -20,7 +20,7 @@ if __name__ == "__main__":
 
     count = 1
     if not args.multiple_file_output:
-      single_file = open(os.path.join(args.input, "output.csv"), "w")
+      single_file = open(os.path.join(args.input, "output.csv"), "w", encoding="utf-8")
     for filename in args.input.iterdir():
       if filename.is_file() and filename.suffix == ".aoe2record":
         print(f"Starting rec: {count}")
@@ -43,7 +43,7 @@ if __name__ == "__main__":
             args.include_techs,
             args.include_player_openings)
         if args.multiple_file_output:
-          with open(filename.with_suffix(".csv"), "w") as f:
+          with open(filename.with_suffix(".csv"), "w", encoding="utf-8") as f:
             f.write(csv)
         else:
           single_file.write(csv)
